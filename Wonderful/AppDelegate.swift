@@ -17,6 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        if let userInfo = launchOptions?["aps"] as? NSDictionary{
+            let navigation = self.window?.rootViewController as! UINavigationController
+            
+            if let controller = navigation.viewControllers[0] as? NotificationsController{
+                controller.loadNotifications(nil)
+            }
+        }
+        
+        CSAPIRequest().checkCurrentUserInUsingDeviceUUID()
+        
+        UIApplication.sharedApplication().registerForRemoteNotificationsAllAtOnce()
+        
         return true
     }
 
@@ -43,7 +57,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
+    
+    
+    // MARK: - Notifications
+    
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        UIApplication.sharedApplication().registerForRemoteNotifications()
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        println(deviceToken)
+        CSAPIRequest().updateCurrentUserNotificationToken(deviceToken)
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        println(error)
+    }
 
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        let navigation = self.window?.rootViewController as! UINavigationController
+        
+        if let controller = navigation.viewControllers[0] as? NotificationsController{
+            controller.loadNotifications(nil)
+        }
+    }
+    
     // MARK: - Core Data stack
 
     lazy var applicationDocumentsDirectory: NSURL = {
@@ -108,4 +146,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
+extension UIApplication{
+    func registerForRemoteNotificationsAllAtOnce(){
+        let application = UIApplication.sharedApplication()
+        if (application.respondsToSelector("registerUserNotificationSettings:")) {
+            // use registerUserNotificationSettings
+            application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Alert | .Sound | .Badge, categories: nil))
+        } else {
+            application.registerForRemoteNotificationTypes(.Alert | .Sound | .Badge)
+        }
+    }
+}
+
+
 
