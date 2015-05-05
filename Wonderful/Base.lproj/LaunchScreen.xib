@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <objects>
@@ -29,13 +28,6 @@
                                     <constraint firstAttribute="height" constant="1000" id="6Ex-lc-Dgp"/>
                                 </constraints>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="ZZI-WD-cPm">
-                                <rect key="frame" x="275" y="275" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="C9O-1e-ERV"/>
-                                    <constraint firstAttribute="height" constant="50" id="Xyb-ZA-Cl0"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -43,8 +35,6 @@
                             <constraint firstItem="sG5-Vw-Vn2" firstAttribute="top" secondItem="yvF-Xg-DgI" secondAttribute="top" id="0rd-XE-8qC"/>
                             <constraint firstItem="n9I-Ie-Aom" firstAttribute="top" secondItem="sG5-Vw-Vn2" secondAttribute="bottom" id="7da-Kn-5mF"/>
                             <constraint firstAttribute="trailing" secondItem="sG5-Vw-Vn2" secondAttribute="trailing" id="Nxj-uQ-Oft"/>
-                            <constraint firstAttribute="centerX" secondItem="ZZI-WD-cPm" secondAttribute="centerX" id="Qsg-PH-Bd9"/>
-                            <constraint firstAttribute="centerY" secondItem="ZZI-WD-cPm" secondAttribute="centerY" id="xUV-ls-1ns"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -58,7 +48,4 @@
             <point key="canvasLocation" x="583" y="674"/>
         </navigationController>
     </objects>
-    <resources>
-        <image name="Icon" width="180" height="180"/>
-    </resources>
 </document>

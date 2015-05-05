@@ -11,6 +11,7 @@ import UIKit
 class NotificationCell: UITableViewCell {
 
     @IBOutlet var messageLabel: UILabel!
+    @IBOutlet var favoritedIcon: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

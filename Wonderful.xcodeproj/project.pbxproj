@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F137345B3C253223BCF212A /* libPods-Wonderful.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9648126F97C36F801C96CB5 /* libPods-Wonderful.a */; };
+		B023637C1AF8FC4400989E83 /* ASAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B023637B1AF8FC4400989E83 /* ASAPIRequest.swift */; };
 		B03C265E1AE450770060024A /* CSAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03C265C1AE4502A0060024A /* CSAPIRequest.swift */; };
+		B0D9203E1AEF5440000EB09E /* SwiftAddressBookDataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D920371AEF5440000EB09E /* SwiftAddressBookDataStructures.swift */; };
+		B0D9203F1AEF5440000EB09E /* SwiftAddressBookGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D920381AEF5440000EB09E /* SwiftAddressBookGroup.swift */; };
+		B0D920401AEF5440000EB09E /* SwiftAddressBookHelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D920391AEF5440000EB09E /* SwiftAddressBookHelperMethods.swift */; };
+		B0D920411AEF5440000EB09E /* SwiftAddressBookPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9203A1AEF5440000EB09E /* SwiftAddressBookPerson.swift */; };
+		B0D920421AEF5440000EB09E /* SwiftAddressBookRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9203B1AEF5440000EB09E /* SwiftAddressBookRecord.swift */; };
+		B0D920431AEF5440000EB09E /* SwiftAddressBookSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9203C1AEF5440000EB09E /* SwiftAddressBookSource.swift */; };
+		B0D920441AEF5440000EB09E /* SwiftAddressBookWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D9203D1AEF5440000EB09E /* SwiftAddressBookWrapper.swift */; };
+		B0D920461AEF570C000EB09E /* AddressBookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D920451AEF570C000EB09E /* AddressBookController.swift */; };
 		B0E09F471AEAD3D50020E10D /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E09F461AEAD3D50020E10D /* NotificationCell.swift */; };
 		B0FE9A541AE3D9B5005E17D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE9A531AE3D9B5005E17D9 /* AppDelegate.swift */; };
 		B0FE9A571AE3D9B5005E17D9 /* Wonderful.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0FE9A551AE3D9B5005E17D9 /* Wonderful.xcdatamodeld */; };
@@ -17,6 +25,7 @@
 		B0FE9A5E1AE3D9B5005E17D9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0FE9A5D1AE3D9B5005E17D9 /* Images.xcassets */; };
 		B0FE9A611AE3D9B5005E17D9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0FE9A5F1AE3D9B5005E17D9 /* LaunchScreen.xib */; };
 		B0FE9A6D1AE3D9B5005E17D9 /* WonderfulTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE9A6C1AE3D9B5005E17D9 /* WonderfulTests.swift */; };
+		ECC5F6E2BBEFDD5D8331405B /* libPods-Wonderful.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 167A62A8542FEAF8314DBCA7 /* libPods-Wonderful.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,9 +39,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		167A62A8542FEAF8314DBCA7 /* libPods-Wonderful.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Wonderful.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C37DD10046708DC3679BA2 /* Pods-Wonderful.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wonderful.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wonderful/Pods-Wonderful.debug.xcconfig"; sourceTree = "<group>"; };
+		B023637B1AF8FC4400989E83 /* ASAPIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASAPIRequest.swift; sourceTree = "<group>"; };
 		B03C26551AE41D7D0060024A /* Wonderful-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wonderful-Bridging-Header.h"; sourceTree = "<group>"; };
 		B03C265C1AE4502A0060024A /* CSAPIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSAPIRequest.swift; sourceTree = "<group>"; };
+		B0D920371AEF5440000EB09E /* SwiftAddressBookDataStructures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftAddressBookDataStructures.swift; sourceTree = "<group>"; };
+		B0D920381AEF5440000EB09E /* SwiftAddressBookGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftAddressBookGroup.swift; sourceTree = "<group>"; };
+		B0D920391AEF5440000EB09E /* SwiftAddressBookHelperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftAddressBookHelperMethods.swift; sourceTree = "<group>"; };
+		B0D9203A1AEF5440000EB09E /* SwiftAddressBookPerson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftAddressBookPerson.swift; sourceTree = "<group>"; };
+		B0D9203B1AEF5440000EB09E /* SwiftAddressBookRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftAddressBookRecord.swift; sourceTree = "<group>"; };
+		B0D9203C1AEF5440000EB09E /* SwiftAddressBookSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftAddressBookSource.swift; sourceTree = "<group>"; };
+		B0D9203D1AEF5440000EB09E /* SwiftAddressBookWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftAddressBookWrapper.swift; sourceTree = "<group>"; };
+		B0D920451AEF570C000EB09E /* AddressBookController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookController.swift; sourceTree = "<group>"; };
 		B0E09F461AEAD3D50020E10D /* NotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		B0FE9A4E1AE3D9B5005E17D9 /* Wonderful.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wonderful.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0FE9A521AE3D9B5005E17D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,7 +64,6 @@
 		B0FE9A661AE3D9B5005E17D9 /* WonderfulTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WonderfulTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0FE9A6B1AE3D9B5005E17D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0FE9A6C1AE3D9B5005E17D9 /* WonderfulTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WonderfulTests.swift; sourceTree = "<group>"; };
-		C9648126F97C36F801C96CB5 /* libPods-Wonderful.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Wonderful.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE137F5EE4CBEBC9049AE1E8 /* Pods-Wonderful.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wonderful.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wonderful/Pods-Wonderful.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F137345B3C253223BCF212A /* libPods-Wonderful.a in Frameworks */,
+				ECC5F6E2BBEFDD5D8331405B /* libPods-Wonderful.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,7 +89,7 @@
 		157BEBA80592021716BF0338 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C9648126F97C36F801C96CB5 /* libPods-Wonderful.a */,
+				167A62A8542FEAF8314DBCA7 /* libPods-Wonderful.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -83,6 +101,20 @@
 				DE137F5EE4CBEBC9049AE1E8 /* Pods-Wonderful.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B0D920361AEF5430000EB09E /* Address Book */ = {
+			isa = PBXGroup;
+			children = (
+				B0D920371AEF5440000EB09E /* SwiftAddressBookDataStructures.swift */,
+				B0D920381AEF5440000EB09E /* SwiftAddressBookGroup.swift */,
+				B0D920391AEF5440000EB09E /* SwiftAddressBookHelperMethods.swift */,
+				B0D9203A1AEF5440000EB09E /* SwiftAddressBookPerson.swift */,
+				B0D9203B1AEF5440000EB09E /* SwiftAddressBookRecord.swift */,
+				B0D9203C1AEF5440000EB09E /* SwiftAddressBookSource.swift */,
+				B0D9203D1AEF5440000EB09E /* SwiftAddressBookWrapper.swift */,
+			);
+			name = "Address Book";
 			sourceTree = "<group>";
 		};
 		B0FE9A451AE3D9B5005E17D9 = {
@@ -109,8 +141,10 @@
 			isa = PBXGroup;
 			children = (
 				B03C265C1AE4502A0060024A /* CSAPIRequest.swift */,
+				B023637B1AF8FC4400989E83 /* ASAPIRequest.swift */,
 				B0FE9A531AE3D9B5005E17D9 /* AppDelegate.swift */,
 				B0FE9A581AE3D9B5005E17D9 /* NotificationsController.swift */,
+				B0D920451AEF570C000EB09E /* AddressBookController.swift */,
 				B0FE9A5A1AE3D9B5005E17D9 /* Main.storyboard */,
 				B0FE9A5D1AE3D9B5005E17D9 /* Images.xcassets */,
 				B0FE9A5F1AE3D9B5005E17D9 /* LaunchScreen.xib */,
@@ -125,6 +159,7 @@
 		B0FE9A511AE3D9B5005E17D9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B0D920361AEF5430000EB09E /* Address Book */,
 				B0FE9A521AE3D9B5005E17D9 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -283,11 +318,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B023637C1AF8FC4400989E83 /* ASAPIRequest.swift in Sources */,
+				B0D920401AEF5440000EB09E /* SwiftAddressBookHelperMethods.swift in Sources */,
 				B0FE9A591AE3D9B5005E17D9 /* NotificationsController.swift in Sources */,
+				B0D9203E1AEF5440000EB09E /* SwiftAddressBookDataStructures.swift in Sources */,
+				B0D920441AEF5440000EB09E /* SwiftAddressBookWrapper.swift in Sources */,
+				B0D920411AEF5440000EB09E /* SwiftAddressBookPerson.swift in Sources */,
+				B0D9203F1AEF5440000EB09E /* SwiftAddressBookGroup.swift in Sources */,
 				B0FE9A571AE3D9B5005E17D9 /* Wonderful.xcdatamodeld in Sources */,
 				B03C265E1AE450770060024A /* CSAPIRequest.swift in Sources */,
 				B0E09F471AEAD3D50020E10D /* NotificationCell.swift in Sources */,
+				B0D920421AEF5440000EB09E /* SwiftAddressBookRecord.swift in Sources */,
 				B0FE9A541AE3D9B5005E17D9 /* AppDelegate.swift in Sources */,
+				B0D920461AEF570C000EB09E /* AddressBookController.swift in Sources */,
+				B0D920431AEF5440000EB09E /* SwiftAddressBookSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

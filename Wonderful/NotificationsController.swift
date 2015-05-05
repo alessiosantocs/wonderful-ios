@@ -27,6 +27,8 @@ class NotificationsController: UITableViewController {
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 88.0
+        
+//        self.tryAndOpenAddressBook()
 
     }
 
@@ -61,6 +63,7 @@ class NotificationsController: UITableViewController {
         self.refreshControl?.endRefreshing()
     }
     
+    
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if(self.notifications.count > 0){
@@ -89,6 +92,14 @@ class NotificationsController: UITableViewController {
         var cell = tableView.dequeueReusableCellWithIdentifier("NotificationCell", forIndexPath: indexPath) as! NotificationCell
         
         let notification = self.notifications[indexPath.row]
+        let userNotification = notification["user_notification"] as! NSDictionary
+        let isLoved = userNotification["is_loved"] as! Bool
+        
+        if(isLoved){
+            cell.favoritedIcon.hidden = false
+        }else{
+            cell.favoritedIcon.hidden = true
+        }
         
         cell.messageLabel?.text = notification["message"] as? String
         cell.messageLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
@@ -124,6 +135,10 @@ class NotificationsController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        let notification = self.notifications[indexPath.row]
+        let userNotification = notification["user_notification"] as! NSDictionary
+        let isLoved = userNotification["is_loved"] as! Bool
+        
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         let alertView = UIAlertController(title: "Do something about it, will you?", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
@@ -139,10 +154,10 @@ class NotificationsController: UITableViewController {
 
         
         let mainAction = UIAlertAction(title: "Share it", style: UIAlertActionStyle.Default) { (action: UIAlertAction!) -> Void in
-            self.presentViewController(stayTunedAlert, animated: true, completion: nil)
+            self.tryAndOpenAddressBook()
         }
-        let secondaryAction = UIAlertAction(title: "Love it", style: UIAlertActionStyle.Default) { (action: UIAlertAction!) -> Void in
-            self.presentViewController(stayTunedAlert, animated: true, completion: nil)
+        let secondaryAction = UIAlertAction(title: (isLoved) ? "Unlove" : "Love", style: UIAlertActionStyle.Default) { (action: UIAlertAction!) -> Void in
+            self.loveUserNotificationOfNotificationAtIndexPath(indexPath)
         }
         let optionalAction = UIAlertAction(title: "Send again", style: UIAlertActionStyle.Default) { (action: UIAlertAction!) -> Void in
             self.presentViewController(stayTunedAlert, animated: true, completion: nil)
@@ -151,10 +166,50 @@ class NotificationsController: UITableViewController {
         
         alertView.addAction(mainAction)
         alertView.addAction(secondaryAction)
-        alertView.addAction(optionalAction)
+//        alertView.addAction(optionalAction)
         alertView.addAction(cancelAction)
         
         self.presentViewController(alertView, animated: true, completion: nil)
+    }
+    
+    
+    func tryAndOpenAddressBook(){
+        swiftAddressBook?.requestAccessWithCompletion({ (success, error) -> Void in
+            if success {
+                self.performSegueWithIdentifier("addressBookModalSegue", sender: self)
+            }
+            else {
+                // Say something
+            }
+        })
+    }
+    
+    
+    
+    func loveUserNotificationOfNotificationAtIndexPath(indexPath: NSIndexPath){
+        
+        let notification = self.notifications[indexPath.row]
+        
+        if let userNotification = notification["user_notification"] as? NSDictionary{
+            let userNotificationId = (userNotification["id"] as! Int).description
+            
+            if let isLoved = userNotification["is_loved"] as? Bool{
+                if(isLoved){
+                    CSAPIRequest().unloveUserNotificationWithId(userNotificationId, success: self.handleSuccessLoveUserNotificationRequest, failure: self.handleFailureLoveUserNotificationRequest)
+                }else{
+                    CSAPIRequest().loveUserNotificationWithId(userNotificationId, success: self.handleSuccessLoveUserNotificationRequest, failure: self.handleFailureLoveUserNotificationRequest)
+                }
+            }
+            
+        }
+    }
+    
+    func handleSuccessLoveUserNotificationRequest(operation: AFHTTPRequestOperation!, responseObject: AnyObject!){
+        self.loadNotifications(self.refreshControl!)
+    }
+
+    func handleFailureLoveUserNotificationRequest(operation: AFHTTPRequestOperation!, error: NSError!){
+        self.loadNotifications(self.refreshControl!)
     }
 }
 
